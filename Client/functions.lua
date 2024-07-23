@@ -29,7 +29,6 @@ function callPolice()
     -- Here you can add your own police call system
 end
 
--- Client Side
 function StartRobbery(data)
     local robberyFinish = false
     if checkCooldown() then return end
