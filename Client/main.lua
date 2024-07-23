@@ -4,7 +4,8 @@ exports.ox_target:addGlobalPed({
     icon = 'fas fa-user-ninja',
     distance = 1.5,
     canInteract = function(entity, distance)
-        return true
+        local PedType = GetPedType(entity)
+        return PedType ~= 28
     end,  
     onSelect = function(data)
         local policeAvailable = lib.callback.await('Roda_Carterista:server:checkCops', false)
@@ -15,5 +16,3 @@ exports.ox_target:addGlobalPed({
         StartRobbery(data)
     end,
 })
-
-
