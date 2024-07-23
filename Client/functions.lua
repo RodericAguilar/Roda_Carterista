@@ -29,7 +29,7 @@ function callPolice()
     -- Here you can add your own police call system
 end
 
-
+-- Client Side
 function StartRobbery(data)
     local robberyFinish = false
     if checkCooldown() then return end
@@ -62,7 +62,7 @@ function StartRobbery(data)
             clip = 'ex03_dingy_search_case_base_michael'
         },
     }) then 
-        local giveItems = lib.callback.await('Roda_Carterista:server:getReward', false)
+        local giveItems = lib.callback.await('Roda_Carterista:server:getReward', false, NetworkGetNetworkIdFromEntity(data.entity))
         if not giveItems then
             ShowNotification(locale('error'), locale('no_items'), 'error')
             return
@@ -73,6 +73,7 @@ function StartRobbery(data)
         ShowNotification(locale('error'), locale('robbery_canceled'), 'error')
     end
 end
+
 
 function ShowNotification(title, text, type)
     if not text then return end
