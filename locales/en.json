@@ -1,0 +1,10 @@
+{
+    "pickpocket": "Look in the pockets",
+    "not_enough_cops": "Not enough cops!",
+    "robbery_canceled": "The robbery has been canceled",
+    "cooldown": "You must wait %s seconds before trying to rob again",
+    "no_items": "There are no items to steal",
+    "robbery_successful": "Successful robbery!",
+    "error" : "Error",
+    "success" : "Success"
+}

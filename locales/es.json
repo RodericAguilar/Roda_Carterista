@@ -1,0 +1,10 @@
+{
+    "pickpocket": "Buscar en los bolsillos",
+    "not_enough_cops": "No hay suficientes policías!",
+    "robbery_canceled": "El robo ha sido cancelado",
+    "cooldown": "Debes esperar %s segundos antes de volver a intentar robar",
+    "no_items": "No hay objetos para robar",
+    "robbery_successful": "¡Robo exitoso!",
+    "error" : "Error",
+    "success" : "Éxito"
+}
