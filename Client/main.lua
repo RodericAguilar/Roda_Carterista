@@ -5,7 +5,8 @@ exports.ox_target:addGlobalPed({
     distance = 1.5,
     canInteract = function(entity, distance)
         local PedType = GetPedType(entity)
-        return PedType ~= 28
+        local isWalking = IsPedWalking(entity)
+        return PedType ~= 28 and isWalking
     end,  
     onSelect = function(data)
         local policeAvailable = lib.callback.await('Roda_Carterista:server:checkCops', false)
