@@ -9,12 +9,20 @@ lib.callback.register('Roda_Carterista:server:checkCops', function(source)
     return copsOnline
 end)
 
-lib.callback.register('Roda_Carterista:server:getReward', function(source)
+local robbed = {}
+
+lib.callback.register('Roda_Carterista:server:getReward', function(source, npcEntity)
     local xPlayer = ESX.GetPlayerFromId(source)
-    local rewards = Config.Rewards 
+    local rewards = Config.Rewards
+
+    if robbed[npcEntity] then
+        return false
+    end
+
     if not rewards then
         return false
     end
+
     if rewards.items then 
         if next(rewards.items) then
             local itemToGive = getRandomReward(rewards.items)
@@ -27,8 +35,11 @@ lib.callback.register('Roda_Carterista:server:getReward', function(source)
             xPlayer.addAccountMoney(moneyToGive.account, math.random(moneyToGive.min, moneyToGive.max))
         end
     end
+
+    robbed[npcEntity] = true
     return true
 end)
+
 
 function getRandomReward(tableInfo)
     local random = math.random(1, #tableInfo)
